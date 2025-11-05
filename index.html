@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTEC | Home</title>
+
+  <style>
+    /* ======== GAYA DASAR ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #0a0a0a;
+      color: #f2f2f2;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #111;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #c40000;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c40000;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: 1px solid #c40000;
+      color: #f2f2f2;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background-color: #c40000;
+      color: #fff;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 30px;
+      background: #111;
+      border: 1px solid #c40000;
+      border-radius: 10px;
+      padding: 10px 0;
+      width: 180px;
+      text-align: left;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown a:hover {
+      background: #c40000;
+    }
+
+    .show {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #000 80%);
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      color: #fff;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      color: #aaa;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #111;
+      border-top: 1px solid #c40000;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #888;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">GTEC</div>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <button class="toggle-btn" id="toggleSeries">Racing Series</button>
+    </nav>
+  </header>
+
+  <div class="dropdown" id="seriesMenu">
+    <a href="academy.html">Akademi</a>
+    <a href="f1max.html">F1 Max</a>
+    <a href="gt3.html">GT3</a>
+    <a href="ncif.html">NCIF</a>
+  </div>
+
+  <section class="hero">
+    <h1>Selamat Datang di GTEC Technical Apex</h1>
+    <p>Precision • Control • Evolution</p>
+  </section>
+
+  <footer>© 2025 GTEC. All Rights Reserved.</footer>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleSeries");
+    const menu = document.getElementById("seriesMenu");
+
+    toggleBtn.addEventListener("click", () => {
+      menu.classList.toggle("show");
+    });
+
+    // Tutup dropdown jika klik di luar
+    document.addEventListener("click", (e) => {
+      if (!toggleBtn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove("show");
+      }
+    });
+  </script>
+</body>
+</html>
